@@ -1,0 +1,18 @@
+const middleware = {}
+
+middleware['auth'] = require('../client/middleware/auth.js')
+middleware['auth'] = middleware['auth'].default || middleware['auth']
+
+middleware['check-auth'] = require('../client/middleware/check-auth.js')
+middleware['check-auth'] = middleware['check-auth'].default || middleware['check-auth']
+
+middleware['guest'] = require('../client/middleware/guest.js')
+middleware['guest'] = middleware['guest'].default || middleware['guest']
+
+middleware['is-instructor'] = require('../client/middleware/is-instructor.js')
+middleware['is-instructor'] = middleware['is-instructor'].default || middleware['is-instructor']
+
+middleware['locale'] = require('../client/middleware/locale.js')
+middleware['locale'] = middleware['locale'].default || middleware['locale']
+
+export default middleware

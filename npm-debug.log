@@ -1,0 +1,931 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'install', 'pm2', '-g' ]
+2 info using npm@1.3.6
+3 info using node@v0.10.48
+4 verbose cache add [ 'pm2', null ]
+5 verbose cache add name=undefined spec="pm2" args=["pm2",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'pm2',
+6 verbose parsed url   path: 'pm2',
+6 verbose parsed url   href: 'pm2' }
+7 silly lockFile b1fbedd8-pm2 pm2
+8 verbose lock pm2 /home/heroacademy/.npm/b1fbedd8-pm2.lock
+9 silly lockFile b1fbedd8-pm2 pm2
+10 silly lockFile b1fbedd8-pm2 pm2
+11 verbose addNamed [ 'pm2', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile d1072219-pm2 pm2@
+14 verbose lock pm2@ /home/heroacademy/.npm/d1072219-pm2.lock
+15 silly addNameRange { name: 'pm2', range: '*', hasData: false }
+16 verbose url raw pm2
+17 verbose url resolving [ 'https://registry.npmjs.org/', './pm2' ]
+18 verbose url resolved https://registry.npmjs.org/pm2
+19 info trying registry request attempt 1 at 12:54:31
+20 http GET https://registry.npmjs.org/pm2
+21 http 200 https://registry.npmjs.org/pm2
+22 silly registry.get cb [ 200,
+22 silly registry.get   { date: 'Sat, 18 Apr 2020 04:54:32 GMT',
+22 silly registry.get     'content-type': 'application/json',
+22 silly registry.get     'transfer-encoding': 'chunked',
+22 silly registry.get     connection: 'keep-alive',
+22 silly registry.get     'set-cookie': [ '__cfduid=d085746f1aec97dbb595bc20a714d97081587185672; expires=Mon, 18-May-20 04:54:32 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+22 silly registry.get     'cf-ray': '585bc9d48984ca6f-YUL',
+22 silly registry.get     age: '3605',
+22 silly registry.get     'cache-control': 'public, max-age=300',
+22 silly registry.get     etag: 'W/"02c9d1d9638544fc8e59dc1b22ec864a"',
+22 silly registry.get     'last-modified': 'Sun, 09 Feb 2020 14:34:09 GMT',
+22 silly registry.get     vary: 'accept-encoding, accept',
+22 silly registry.get     'cf-cache-status': 'HIT',
+22 silly registry.get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly registry.get     server: 'cloudflare',
+22 silly registry.get     'content-encoding': 'gzip',
+22 silly registry.get     'cf-request-id': '022d3c78d30000ca6f08ba2200000001' } ]
+23 silly addNameRange number 2 { name: 'pm2', range: '*', hasData: true }
+24 silly addNameRange versions [ 'pm2',
+24 silly addNameRange   [ '0.4.0',
+24 silly addNameRange     '0.4.1',
+24 silly addNameRange     '0.4.2',
+24 silly addNameRange     '0.4.3',
+24 silly addNameRange     '0.4.4',
+24 silly addNameRange     '0.4.5',
+24 silly addNameRange     '0.4.6',
+24 silly addNameRange     '0.4.7',
+24 silly addNameRange     '0.4.8',
+24 silly addNameRange     '0.4.10',
+24 silly addNameRange     '0.4.11',
+24 silly addNameRange     '0.4.12',
+24 silly addNameRange     '0.4.13',
+24 silly addNameRange     '0.4.14',
+24 silly addNameRange     '0.5.0',
+24 silly addNameRange     '0.5.1',
+24 silly addNameRange     '0.5.2',
+24 silly addNameRange     '0.5.3',
+24 silly addNameRange     '0.5.4',
+24 silly addNameRange     '0.5.5',
+24 silly addNameRange     '0.5.6',
+24 silly addNameRange     '0.5.7',
+24 silly addNameRange     '0.6.2',
+24 silly addNameRange     '0.6.3',
+24 silly addNameRange     '0.6.4',
+24 silly addNameRange     '0.6.5',
+24 silly addNameRange     '0.6.6',
+24 silly addNameRange     '0.6.7',
+24 silly addNameRange     '0.6.8',
+24 silly addNameRange     '0.6.9',
+24 silly addNameRange     '0.6.10',
+24 silly addNameRange     '0.6.11',
+24 silly addNameRange     '0.6.12',
+24 silly addNameRange     '0.6.13',
+24 silly addNameRange     '0.6.14',
+24 silly addNameRange     '0.6.15',
+24 silly addNameRange     '0.7.0',
+24 silly addNameRange     '0.7.1',
+24 silly addNameRange     '0.7.2',
+24 silly addNameRange     '0.7.3',
+24 silly addNameRange     '0.7.4',
+24 silly addNameRange     '0.7.5',
+24 silly addNameRange     '0.7.6',
+24 silly addNameRange     '0.7.7',
+24 silly addNameRange     '0.7.8',
+24 silly addNameRange     '0.8.0',
+24 silly addNameRange     '0.8.1',
+24 silly addNameRange     '0.8.2',
+24 silly addNameRange     '0.8.3',
+24 silly addNameRange     '0.8.4',
+24 silly addNameRange     '0.8.5',
+24 silly addNameRange     '0.8.6',
+24 silly addNameRange     '0.8.7',
+24 silly addNameRange     '0.8.8',
+24 silly addNameRange     '0.8.9',
+24 silly addNameRange     '0.8.10',
+24 silly addNameRange     '0.8.11',
+24 silly addNameRange     '0.8.12',
+24 silly addNameRange     '0.8.13',
+24 silly addNameRange     '0.8.14',
+24 silly addNameRange     '0.8.15',
+24 silly addNameRange     '0.9.0',
+24 silly addNameRange     '0.9.1',
+24 silly addNameRange     '0.9.2',
+24 silly addNameRange     '0.9.3',
+24 silly addNameRange     '0.9.4',
+24 silly addNameRange     '0.9.5',
+24 silly addNameRange     '0.9.6',
+24 silly addNameRange     '0.10.0-beta1',
+24 silly addNameRange     '0.10.0-beta2',
+24 silly addNameRange     '0.10.0-beta4',
+24 silly addNameRange     '0.10.0-beta5',
+24 silly addNameRange     '0.10.0-beta6',
+24 silly addNameRange     '0.10.0-beta7',
+24 silly addNameRange     '0.10.0-beta8',
+24 silly addNameRange     '0.10.0-beta9',
+24 silly addNameRange     '0.10.0-beta10',
+24 silly addNameRange     '0.10.0-beta11',
+24 silly addNameRange     '0.10.0-beta12',
+24 silly addNameRange     '0.10.0-beta13',
+24 silly addNameRange     '0.10.0-beta14',
+24 silly addNameRange     '0.10.0-beta15',
+24 silly addNameRange     '0.10.0-beta16',
+24 silly addNameRange     '0.10.0-beta17',
+24 silly addNameRange     '0.10.0-beta18',
+24 silly addNameRange     '0.10.0-beta19',
+24 silly addNameRange     '0.10.0-beta20',
+24 silly addNameRange     '0.10.0-beta21',
+24 silly addNameRange     '0.10.0-beta22',
+24 silly addNameRange     '0.10.0-beta23',
+24 silly addNameRange     '0.10.0-beta25',
+24 silly addNameRange     '0.10.0',
+24 silly addNameRange     '0.10.1',
+24 silly addNameRange     '0.10.2',
+24 silly addNameRange     '0.10.3',
+24 silly addNameRange     '0.10.4',
+24 silly addNameRange     '0.10.5',
+24 silly addNameRange     '0.10.6',
+24 silly addNameRange     '0.10.7',
+24 silly addNameRange     '0.10.8',
+24 silly addNameRange     '0.11.0-beta1',
+24 silly addNameRange     '0.11.0',
+24 silly addNameRange     '0.11.1',
+24 silly addNameRange     '0.12.0',
+24 silly addNameRange     '0.12.1',
+24 silly addNameRange     '0.12.2',
+24 silly addNameRange     '0.12.3',
+24 silly addNameRange     '0.12.4',
+24 silly addNameRange     '0.12.5',
+24 silly addNameRange     '0.12.6',
+24 silly addNameRange     '0.12.7',
+24 silly addNameRange     '0.12.8',
+24 silly addNameRange     '0.12.9',
+24 silly addNameRange     '0.12.10',
+24 silly addNameRange     '0.12.11',
+24 silly addNameRange     '0.12.12',
+24 silly addNameRange     '0.12.13',
+24 silly addNameRange     '0.12.14',
+24 silly addNameRange     '0.12.15',
+24 silly addNameRange     '0.12.16',
+24 silly addNameRange     '0.14.0',
+24 silly addNameRange     '0.14.1',
+24 silly addNameRange     '0.14.2',
+24 silly addNameRange     '0.14.3',
+24 silly addNameRange     '0.14.4',
+24 silly addNameRange     '0.14.5',
+24 silly addNameRange     '0.14.6',
+24 silly addNameRange     '0.14.7',
+24 silly addNameRange     '0.15.0',
+24 silly addNameRange     '0.15.1',
+24 silly addNameRange     '0.15.2',
+24 silly addNameRange     '0.15.3',
+24 silly addNameRange     '0.15.4',
+24 silly addNameRange     '0.15.5',
+24 silly addNameRange     '0.15.6',
+24 silly addNameRange     '0.15.7',
+24 silly addNameRange     '0.15.8',
+24 silly addNameRange     '0.15.9',
+24 silly addNameRange     '0.15.10',
+24 silly addNameRange     '1.0.0',
+24 silly addNameRange     '1.0.1',
+24 silly addNameRange     '1.0.2',
+24 silly addNameRange     '1.1.1',
+24 silly addNameRange     '1.1.2',
+24 silly addNameRange     '1.1.3',
+24 silly addNameRange     '2.0.0',
+24 silly addNameRange     '2.0.1',
+24 silly addNameRange     '2.0.2',
+24 silly addNameRange     '2.0.3',
+24 silly addNameRange     '2.0.4',
+24 silly addNameRange     '2.0.5',
+24 silly addNameRange     '2.0.6',
+24 silly addNameRange     '2.0.7',
+24 silly addNameRange     '2.0.8',
+24 silly addNameRange     '2.0.9',
+24 silly addNameRange     '2.0.10',
+24 silly addNameRange     '2.0.12',
+24 silly addNameRange     '2.0.13',
+24 silly addNameRange     '2.0.14',
+24 silly addNameRange     '2.0.15',
+24 silly addNameRange     '2.0.16',
+24 silly addNameRange     '2.0.17',
+24 silly addNameRange     '2.0.18',
+24 silly addNameRange     '2.0.19',
+24 silly addNameRange     '2.1.0',
+24 silly addNameRange     '2.1.1',
+24 silly addNameRange     '2.1.2',
+24 silly addNameRange     '2.1.3',
+24 silly addNameRange     '2.1.4',
+24 silly addNameRange     '2.1.5',
+24 silly addNameRange     '2.1.6',
+24 silly addNameRange     '2.2.0',
+24 silly addNameRange     '2.2.1',
+24 silly addNameRange     '2.2.2',
+24 silly addNameRange     '2.2.3',
+24 silly addNameRange     '2.3.0-beta1',
+24 silly addNameRange     '2.3.0',
+24 silly addNameRange     '2.3.1-next',
+24 silly addNameRange     '2.4.0-beta1',
+24 silly addNameRange     '2.4.0-beta2',
+24 silly addNameRange     '2.4.0-beta3',
+24 silly addNameRange     '2.4.0-beta4',
+24 silly addNameRange     '2.4.0-beta5',
+24 silly addNameRange     '2.4.0',
+24 silly addNameRange     '2.4.1-beta1',
+24 silly addNameRange     '2.4.1-beta2',
+24 silly addNameRange     '2.4.1-beta3',
+24 silly addNameRange     '2.4.1-beta4',
+24 silly addNameRange     '2.4.1-beta5',
+24 silly addNameRange     '2.4.1',
+24 silly addNameRange     '2.4.2',
+24 silly addNameRange     '2.4.3-rc1',
+24 silly addNameRange     '2.4.3',
+24 silly addNameRange     '2.4.4',
+24 silly addNameRange     '2.4.5',
+24 silly addNameRange     '2.4.6',
+24 silly addNameRange     '2.5.0-beta1',
+24 silly addNameRange     '2.5.0',
+24 silly addNameRange     '2.6.0',
+24 silly addNameRange     '2.6.1',
+24 silly addNameRange     '2.7.0',
+24 silly addNameRange     '2.7.1',
+24 silly addNameRange     '2.7.2',
+24 silly addNameRange     '2.8.0',
+24 silly addNameRange     '2.8.0-next',
+24 silly addNameRange     '2.9.0',
+24 silly addNameRange     '2.9.1',
+24 silly addNameRange     '2.9.2-next',
+24 silly addNameRange     '2.9.2',
+24 silly addNameRange     '2.9.3',
+24 silly addNameRange     '2.10.0',
+24 silly addNameRange     '2.10.1',
+24 silly addNameRange     '2.10.2',
+24 silly addNameRange     '2.10.3',
+24 silly addNameRange     '2.10.4',
+24 silly addNameRange     '3.0.0',
+24 silly addNameRange     '3.0.1',
+24 silly addNameRange     '3.0.2',
+24 silly addNameRange     '3.0.3',
+24 silly addNameRange     '3.0.4',
+24 silly addNameRange     '3.1.0',
+24 silly addNameRange     '3.1.1',
+24 silly addNameRange     '3.1.2',
+24 silly addNameRange     '3.1.3',
+24 silly addNameRange     '3.2.0',
+24 silly addNameRange     '3.2.1',
+24 silly addNameRange     '3.2.2',
+24 silly addNameRange     '3.2.3',
+24 silly addNameRange     '3.2.4',
+24 silly addNameRange     '3.2.5',
+24 silly addNameRange     '3.2.6',
+24 silly addNameRange     '3.2.7',
+24 silly addNameRange     '3.2.8',
+24 silly addNameRange     '3.2.9',
+24 silly addNameRange     '3.3.0',
+24 silly addNameRange     '3.3.1',
+24 silly addNameRange     '3.4.0',
+24 silly addNameRange     '3.4.1',
+24 silly addNameRange     '3.5.0',
+24 silly addNameRange     '3.5.1',
+24 silly addNameRange     '4.0.0',
+24 silly addNameRange     '4.0.1',
+24 silly addNameRange     '4.0.2',
+24 silly addNameRange     '4.1.0',
+24 silly addNameRange     '4.1.1',
+24 silly addNameRange     '4.1.2',
+24 silly addNameRange     '4.2.0',
+24 silly addNameRange     '3.5.2',
+24 silly addNameRange     '4.2.1',
+24 silly addNameRange     '4.2.2',
+24 silly addNameRange     '4.2.3' ] ]
+25 verbose addNamed [ 'pm2', '4.2.3' ]
+26 verbose addNamed [ '4.2.3', '4.2.3' ]
+27 silly lockFile d16adaaa-pm2-4-2-3 pm2@4.2.3
+28 verbose lock pm2@4.2.3 /home/heroacademy/.npm/d16adaaa-pm2-4-2-3.lock
+29 silly lockFile 074142bc-stry-npmjs-org-pm2-pm2-4-2-3-tgz https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz
+30 verbose lock https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz /home/heroacademy/.npm/074142bc-stry-npmjs-org-pm2-pm2-4-2-3-tgz.lock
+31 verbose addRemoteTarball [ 'https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz',
+31 verbose addRemoteTarball   'a3de6679e9ec72ecb44fef0d41441552879846f9' ]
+32 info retry fetch attempt 1 at 12:54:31
+33 verbose fetch to= /home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz
+34 http GET https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz
+35 http 200 https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz
+36 verbose tar unpack /home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz
+37 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+38 verbose lock tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package /home/heroacademy/.npm/1a850818-1138-0-09345347969792783-package.lock
+39 silly lockFile a5984e64-1138-0-09345347969792783-tmp-tgz tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz
+40 verbose lock tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz /home/heroacademy/.npm/a5984e64-1138-0-09345347969792783-tmp-tgz.lock
+41 silly gunzTarPerm modes [ '755', '644' ]
+42 silly gunzTarPerm extractEntry .gitattributes
+43 silly gunzTarPerm modified mode [ '.gitattributes', 436, 420 ]
+44 silly gunzTarPerm extractEntry e2e_time
+45 silly gunzTarPerm modified mode [ 'e2e_time', 436, 420 ]
+46 silly gunzTarPerm extractEntry LICENSE
+47 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+48 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/motd
+49 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/pres/motd', 436, 420 ]
+50 silly gunzTarPerm extractEntry lib/motd
+51 silly gunzTarPerm modified mode [ 'lib/motd', 436, 420 ]
+52 silly gunzTarPerm extractEntry bin/pm2
+53 silly gunzTarPerm modified mode [ 'bin/pm2', 509, 493 ]
+54 silly gunzTarPerm extractEntry lib/templates/logrotate.d/pm2
+55 silly gunzTarPerm modified mode [ 'lib/templates/logrotate.d/pm2', 436, 420 ]
+56 silly gunzTarPerm extractEntry pm2
+57 silly gunzTarPerm modified mode [ 'pm2', 509, 493 ]
+58 silly gunzTarPerm extractEntry bin/pm2-dev
+59 silly gunzTarPerm modified mode [ 'bin/pm2-dev', 509, 493 ]
+60 silly gunzTarPerm extractEntry bin/pm2-docker
+61 silly gunzTarPerm modified mode [ 'bin/pm2-docker', 509, 493 ]
+62 silly gunzTarPerm extractEntry bin/pm2-runtime
+63 silly gunzTarPerm modified mode [ 'bin/pm2-runtime', 509, 493 ]
+64 silly gunzTarPerm extractEntry unit_time
+65 silly gunzTarPerm modified mode [ 'unit_time', 436, 420 ]
+66 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/welcome
+67 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/pres/welcome', 436, 420 ]
+68 silly gunzTarPerm extractEntry lib/tools/xdg-open
+69 silly gunzTarPerm modified mode [ 'lib/tools/xdg-open', 509, 493 ]
+70 silly gunzTarPerm extractEntry lib/Sysinfo/fastlist.exe
+71 silly gunzTarPerm modified mode [ 'lib/Sysinfo/fastlist.exe', 436, 420 ]
+72 silly gunzTarPerm extractEntry lib/God/ActionMethods.js
+73 silly gunzTarPerm modified mode [ 'lib/God/ActionMethods.js', 436, 420 ]
+74 silly gunzTarPerm extractEntry lib/API.js
+75 silly gunzTarPerm modified mode [ 'lib/API.js', 436, 420 ]
+76 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/api.js
+77 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/http-server/api.js', 436, 420 ]
+78 silly gunzTarPerm extractEntry lib/binaries/CLI.js
+79 silly gunzTarPerm modified mode [ 'lib/binaries/CLI.js', 436, 420 ]
+80 silly gunzTarPerm extractEntry lib/API/pm2-plus/auth-strategies/CliAuth.js
+81 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/auth-strategies/CliAuth.js', 436, 420 ]
+82 silly gunzTarPerm extractEntry lib/Client.js
+83 silly gunzTarPerm modified mode [ 'lib/Client.js', 436, 420 ]
+84 silly gunzTarPerm extractEntry lib/God/ClusterMode.js
+85 silly gunzTarPerm modified mode [ 'lib/God/ClusterMode.js', 436, 420 ]
+86 silly gunzTarPerm extractEntry lib/Common.js
+87 silly gunzTarPerm modified mode [ 'lib/Common.js', 436, 420 ]
+88 silly gunzTarPerm extractEntry lib/completion.js
+89 silly gunzTarPerm modified mode [ 'lib/completion.js', 436, 420 ]
+90 silly gunzTarPerm extractEntry lib/tools/Config.js
+91 silly gunzTarPerm modified mode [ 'lib/tools/Config.js', 436, 420 ]
+92 silly gunzTarPerm extractEntry lib/API/Configuration.js
+93 silly gunzTarPerm modified mode [ 'lib/API/Configuration.js', 436, 420 ]
+94 silly gunzTarPerm extractEntry lib/Configuration.js
+95 silly gunzTarPerm modified mode [ 'lib/Configuration.js', 436, 420 ]
+96 silly gunzTarPerm extractEntry constants.js
+97 silly gunzTarPerm modified mode [ 'constants.js', 436, 420 ]
+98 silly gunzTarPerm extractEntry lib/API/Containerizer.js
+99 silly gunzTarPerm modified mode [ 'lib/API/Containerizer.js', 436, 420 ]
+100 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/custom-metrics.js
+101 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/pm2-plus-metrics-actions/custom-metrics.js',
+101 silly gunzTarPerm   436,
+101 silly gunzTarPerm   420 ]
+102 silly gunzTarPerm extractEntry lib/Daemon.js
+103 silly gunzTarPerm modified mode [ 'lib/Daemon.js', 436, 420 ]
+104 silly gunzTarPerm extractEntry lib/API/Dashboard.js
+105 silly gunzTarPerm modified mode [ 'lib/API/Dashboard.js', 436, 420 ]
+106 silly gunzTarPerm extractEntry lib/API/Deploy.js
+107 silly gunzTarPerm modified mode [ 'lib/API/Deploy.js', 436, 420 ]
+108 silly gunzTarPerm extractEntry lib/binaries/DevCLI.js
+109 silly gunzTarPerm modified mode [ 'lib/binaries/DevCLI.js', 436, 420 ]
+110 silly gunzTarPerm extractEntry lib/API/ExtraMgmt/Docker.js
+111 silly gunzTarPerm modified mode [ 'lib/API/ExtraMgmt/Docker.js', 436, 420 ]
+112 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/ecosystem.config.js
+113 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/http-server/ecosystem.config.js',
+113 silly gunzTarPerm   436,
+113 silly gunzTarPerm   420 ]
+114 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/ecosystem.config.js
+115 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/pm2-plus-metrics-actions/ecosystem.config.js',
+115 silly gunzTarPerm   436,
+115 silly gunzTarPerm   420 ]
+116 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/ecosystem.config.js
+117 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/python-app/ecosystem.config.js',
+117 silly gunzTarPerm   436,
+117 silly gunzTarPerm   420 ]
+118 silly gunzTarPerm extractEntry lib/Event.js
+119 silly gunzTarPerm modified mode [ 'lib/Event.js', 436, 420 ]
+120 silly gunzTarPerm extractEntry lib/API/Extra.js
+121 silly gunzTarPerm modified mode [ 'lib/API/Extra.js', 436, 420 ]
+122 silly gunzTarPerm extractEntry lib/tools/find-package-json.js
+123 silly gunzTarPerm modified mode [ 'lib/tools/find-package-json.js', 436, 420 ]
+124 silly gunzTarPerm extractEntry lib/API/Modules/flagExt.js
+125 silly gunzTarPerm modified mode [ 'lib/API/Modules/flagExt.js', 436, 420 ]
+126 silly gunzTarPerm extractEntry lib/tools/fmt.js
+127 silly gunzTarPerm modified mode [ 'lib/tools/fmt.js', 436, 420 ]
+128 silly gunzTarPerm extractEntry lib/God/ForkMode.js
+129 silly gunzTarPerm modified mode [ 'lib/God/ForkMode.js', 436, 420 ]
+130 silly gunzTarPerm extractEntry lib/God.js
+131 silly gunzTarPerm modified mode [ 'lib/God.js', 436, 420 ]
+132 silly gunzTarPerm extractEntry lib/API/pm2-plus/helpers.js
+133 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/helpers.js', 436, 420 ]
+134 silly gunzTarPerm extractEntry lib/API/UX/helpers.js
+135 silly gunzTarPerm modified mode [ 'lib/API/UX/helpers.js', 436, 420 ]
+136 silly gunzTarPerm extractEntry lib/API/Modules/HTTP.js
+137 silly gunzTarPerm modified mode [ 'lib/API/Modules/HTTP.js', 436, 420 ]
+138 silly gunzTarPerm extractEntry lib/HttpInterface.js
+139 silly gunzTarPerm modified mode [ 'lib/HttpInterface.js', 436, 420 ]
+140 silly gunzTarPerm extractEntry index.js
+141 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+142 silly gunzTarPerm extractEntry lib/API/Modules/index.js
+143 silly gunzTarPerm modified mode [ 'lib/API/Modules/index.js', 436, 420 ]
+144 silly gunzTarPerm extractEntry lib/API/UX/index.js
+145 silly gunzTarPerm modified mode [ 'lib/API/UX/index.js', 436, 420 ]
+146 silly gunzTarPerm extractEntry lib/tools/IsAbsolute.js
+147 silly gunzTarPerm modified mode [ 'lib/tools/IsAbsolute.js', 436, 420 ]
+148 silly gunzTarPerm extractEntry lib/tools/isbinaryfile.js
+149 silly gunzTarPerm modified mode [ 'lib/tools/isbinaryfile.js', 436, 420 ]
+150 silly gunzTarPerm extractEntry lib/tools/json5.js
+151 silly gunzTarPerm modified mode [ 'lib/tools/json5.js', 436, 420 ]
+152 silly gunzTarPerm extractEntry lib/API/pm2-plus/link.js
+153 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/link.js', 436, 420 ]
+154 silly gunzTarPerm extractEntry lib/API/Modules/LOCAL.js
+155 silly gunzTarPerm modified mode [ 'lib/API/Modules/LOCAL.js', 436, 420 ]
+156 silly gunzTarPerm extractEntry lib/API/Log.js
+157 silly gunzTarPerm modified mode [ 'lib/API/Log.js', 436, 420 ]
+158 silly gunzTarPerm extractEntry lib/API/LogManagement.js
+159 silly gunzTarPerm modified mode [ 'lib/API/LogManagement.js', 436, 420 ]
+160 silly gunzTarPerm extractEntry lib/Sysinfo/MeanCalc.js
+161 silly gunzTarPerm modified mode [ 'lib/Sysinfo/MeanCalc.js', 436, 420 ]
+162 silly gunzTarPerm extractEntry lib/God/Methods.js
+163 silly gunzTarPerm modified mode [ 'lib/God/Methods.js', 436, 420 ]
+164 silly gunzTarPerm extractEntry lib/API/Modules/Modularizer.js
+165 silly gunzTarPerm modified mode [ 'lib/API/Modules/Modularizer.js', 436, 420 ]
+166 silly gunzTarPerm extractEntry lib/API/Monit.js
+167 silly gunzTarPerm modified mode [ 'lib/API/Monit.js', 436, 420 ]
+168 silly gunzTarPerm extractEntry lib/API/Modules/NPM.js
+169 silly gunzTarPerm modified mode [ 'lib/API/Modules/NPM.js', 436, 420 ]
+170 silly gunzTarPerm extractEntry lib/tools/open.js
+171 silly gunzTarPerm modified mode [ 'lib/tools/open.js', 436, 420 ]
+172 silly gunzTarPerm extractEntry lib/tools/passwd.js
+173 silly gunzTarPerm modified mode [ 'lib/tools/passwd.js', 436, 420 ]
+174 silly gunzTarPerm extractEntry paths.js
+175 silly gunzTarPerm modified mode [ 'paths.js', 436, 420 ]
+176 silly gunzTarPerm extractEntry lib/API/UX/pm2-describe.js
+177 silly gunzTarPerm modified mode [ 'lib/API/UX/pm2-describe.js', 436, 420 ]
+178 silly gunzTarPerm extractEntry lib/API/UX/pm2-ls-minimal.js
+179 silly gunzTarPerm modified mode [ 'lib/API/UX/pm2-ls-minimal.js', 436, 420 ]
+180 silly gunzTarPerm extractEntry lib/API/UX/pm2-ls.js
+181 silly gunzTarPerm modified mode [ 'lib/API/UX/pm2-ls.js', 436, 420 ]
+182 silly gunzTarPerm extractEntry lib/API/pm2-plus/PM2IO.js
+183 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/PM2IO.js', 436, 420 ]
+184 silly gunzTarPerm extractEntry lib/API/pm2-plus/process-selector.js
+185 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/process-selector.js', 436, 420 ]
+186 silly gunzTarPerm extractEntry lib/ProcessContainer.js
+187 silly gunzTarPerm modified mode [ 'lib/ProcessContainer.js', 436, 420 ]
+188 silly gunzTarPerm extractEntry lib/ProcessContainerFork.js
+189 silly gunzTarPerm modified mode [ 'lib/ProcessContainerFork.js', 436, 420 ]
+190 silly gunzTarPerm extractEntry lib/ProcessContainerForkLegacy.js
+191 silly gunzTarPerm modified mode [ 'lib/ProcessContainerForkLegacy.js', 436, 420 ]
+192 silly gunzTarPerm extractEntry lib/ProcessContainerLegacy.js
+193 silly gunzTarPerm modified mode [ 'lib/ProcessContainerLegacy.js', 436, 420 ]
+194 silly gunzTarPerm extractEntry lib/ProcessUtils.js
+195 silly gunzTarPerm modified mode [ 'lib/ProcessUtils.js', 436, 420 ]
+196 silly gunzTarPerm extractEntry lib/tools/promise.min.js
+197 silly gunzTarPerm modified mode [ 'lib/tools/promise.min.js', 436, 420 ]
+198 silly gunzTarPerm extractEntry lib/Sysinfo/psList.js
+199 silly gunzTarPerm modified mode [ 'lib/Sysinfo/psList.js', 436, 420 ]
+200 silly gunzTarPerm extractEntry lib/God/Reload.js
+201 silly gunzTarPerm modified mode [ 'lib/God/Reload.js', 436, 420 ]
+202 silly gunzTarPerm extractEntry lib/binaries/Runtime.js
+203 silly gunzTarPerm modified mode [ 'lib/binaries/Runtime.js', 436, 420 ]
+204 silly gunzTarPerm extractEntry lib/binaries/Runtime4Docker.js
+205 silly gunzTarPerm modified mode [ 'lib/binaries/Runtime4Docker.js', 436, 420 ]
+206 silly gunzTarPerm extractEntry lib/API/Serve.js
+207 silly gunzTarPerm modified mode [ 'lib/API/Serve.js', 436, 420 ]
+208 silly gunzTarPerm extractEntry lib/Sysinfo/ServiceDetection/ServiceDetection.js
+209 silly gunzTarPerm modified mode [ 'lib/Sysinfo/ServiceDetection/ServiceDetection.js', 436, 420 ]
+210 silly gunzTarPerm extractEntry lib/API/Startup.js
+211 silly gunzTarPerm modified mode [ 'lib/API/Startup.js', 436, 420 ]
+212 silly gunzTarPerm extractEntry lib/Sysinfo/SystemInfo.js
+213 silly gunzTarPerm modified mode [ 'lib/Sysinfo/SystemInfo.js', 436, 420 ]
+214 silly gunzTarPerm extractEntry lib/API/Modules/TAR.js
+215 silly gunzTarPerm modified mode [ 'lib/API/Modules/TAR.js', 436, 420 ]
+216 silly gunzTarPerm extractEntry lib/Sysinfo/test.js
+217 silly gunzTarPerm modified mode [ 'lib/Sysinfo/test.js', 436, 420 ]
+218 silly gunzTarPerm extractEntry lib/tools/treeify.js
+219 silly gunzTarPerm modified mode [ 'lib/tools/treeify.js', 436, 420 ]
+220 silly gunzTarPerm extractEntry lib/TreeKill.js
+221 silly gunzTarPerm modified mode [ 'lib/TreeKill.js', 436, 420 ]
+222 silly gunzTarPerm extractEntry lib/Utility.js
+223 silly gunzTarPerm modified mode [ 'lib/Utility.js', 436, 420 ]
+224 silly gunzTarPerm extractEntry lib/API/Version.js
+225 silly gunzTarPerm modified mode [ 'lib/API/Version.js', 436, 420 ]
+226 silly gunzTarPerm extractEntry lib/VersionCheck.js
+227 silly gunzTarPerm modified mode [ 'lib/VersionCheck.js', 436, 420 ]
+228 silly gunzTarPerm extractEntry lib/Watcher.js
+229 silly gunzTarPerm modified mode [ 'lib/Watcher.js', 436, 420 ]
+230 silly gunzTarPerm extractEntry lib/API/pm2-plus/auth-strategies/WebAuth.js
+231 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/auth-strategies/WebAuth.js', 436, 420 ]
+232 silly gunzTarPerm extractEntry lib/Worker.js
+233 silly gunzTarPerm modified mode [ 'lib/Worker.js', 436, 420 ]
+234 silly gunzTarPerm extractEntry lib/API/interpreter.json
+235 silly gunzTarPerm modified mode [ 'lib/API/interpreter.json', 436, 420 ]
+236 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/package.json
+237 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/http-server/package.json',
+237 silly gunzTarPerm   436,
+237 silly gunzTarPerm   420 ]
+238 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/package.json
+239 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/pm2-plus-metrics-actions/package.json',
+239 silly gunzTarPerm   436,
+239 silly gunzTarPerm   420 ]
+240 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/package.json
+241 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/python-app/package.json', 436, 420 ]
+242 silly gunzTarPerm extractEntry package.json
+243 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+244 silly gunzTarPerm extractEntry lib/API/schema.json
+245 silly gunzTarPerm modified mode [ 'lib/API/schema.json', 436, 420 ]
+246 silly gunzTarPerm extractEntry types/tsconfig.json
+247 silly gunzTarPerm modified mode [ 'types/tsconfig.json', 436, 420 ]
+248 silly gunzTarPerm extractEntry CHANGELOG.md
+249 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+250 silly gunzTarPerm extractEntry CONTRIBUTING.md
+251 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 436, 420 ]
+252 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/README.md
+253 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/http-server/README.md', 436, 420 ]
+254 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/README.md
+255 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/pm2-plus-metrics-actions/README.md',
+255 silly gunzTarPerm   436,
+255 silly gunzTarPerm   420 ]
+256 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/README.md
+257 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/python-app/README.md', 436, 420 ]
+258 silly gunzTarPerm extractEntry README.md
+259 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+260 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/echo.py
+261 silly gunzTarPerm modified mode [ 'lib/templates/sample-apps/python-app/echo.py', 436, 420 ]
+262 silly gunzTarPerm extractEntry lib/completion.sh
+263 silly gunzTarPerm modified mode [ 'lib/completion.sh', 436, 420 ]
+264 silly gunzTarPerm extractEntry lib/templates/init-scripts/pm2-init-amazon.sh
+265 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/pm2-init-amazon.sh', 436, 420 ]
+266 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-java.tpl
+267 silly gunzTarPerm modified mode [ 'lib/templates/Dockerfiles/Dockerfile-java.tpl', 436, 420 ]
+268 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-nodejs.tpl
+269 silly gunzTarPerm modified mode [ 'lib/templates/Dockerfiles/Dockerfile-nodejs.tpl', 436, 420 ]
+270 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-ruby.tpl
+271 silly gunzTarPerm modified mode [ 'lib/templates/Dockerfiles/Dockerfile-ruby.tpl', 436, 420 ]
+272 silly gunzTarPerm extractEntry lib/templates/ecosystem-simple.tpl
+273 silly gunzTarPerm modified mode [ 'lib/templates/ecosystem-simple.tpl', 436, 420 ]
+274 silly gunzTarPerm extractEntry lib/templates/ecosystem.tpl
+275 silly gunzTarPerm modified mode [ 'lib/templates/ecosystem.tpl', 436, 420 ]
+276 silly gunzTarPerm extractEntry lib/templates/init-scripts/launchd.tpl
+277 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/launchd.tpl', 436, 420 ]
+278 silly gunzTarPerm extractEntry lib/templates/init-scripts/openrc.tpl
+279 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/openrc.tpl', 509, 493 ]
+280 silly gunzTarPerm extractEntry lib/templates/init-scripts/rcd-openbsd.tpl
+281 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/rcd-openbsd.tpl', 436, 420 ]
+282 silly gunzTarPerm extractEntry lib/templates/init-scripts/rcd.tpl
+283 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/rcd.tpl', 436, 420 ]
+284 silly gunzTarPerm extractEntry lib/templates/init-scripts/smf.tpl
+285 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/smf.tpl', 436, 420 ]
+286 silly gunzTarPerm extractEntry lib/templates/init-scripts/systemd-online.tpl
+287 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/systemd-online.tpl', 436, 420 ]
+288 silly gunzTarPerm extractEntry lib/templates/init-scripts/systemd.tpl
+289 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/systemd.tpl', 436, 420 ]
+290 silly gunzTarPerm extractEntry lib/templates/init-scripts/upstart.tpl
+291 silly gunzTarPerm modified mode [ 'lib/templates/init-scripts/upstart.tpl', 436, 420 ]
+292 silly gunzTarPerm extractEntry types/index.d.ts
+293 silly gunzTarPerm modified mode [ 'types/index.d.ts', 436, 420 ]
+294 silly gunzTarPerm extractEntry GNU-AGPL-3.0.txt
+295 silly gunzTarPerm modified mode [ 'GNU-AGPL-3.0.txt', 436, 420 ]
+296 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/motd.update
+297 silly gunzTarPerm modified mode [ 'lib/API/pm2-plus/pres/motd.update', 436, 420 ]
+298 silly gunzTarPerm extractEntry .travis.yml
+299 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+300 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+301 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+302 silly lockFile a5984e64-1138-0-09345347969792783-tmp-tgz tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz
+303 silly lockFile a5984e64-1138-0-09345347969792783-tmp-tgz tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/tmp.tgz
+304 verbose tar pack [ '/home/heroacademy/.npm/pm2/4.2.3/package.tgz',
+304 verbose tar pack   '/home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package' ]
+305 verbose tarball /home/heroacademy/.npm/pm2/4.2.3/package.tgz
+306 verbose folder /home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+307 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+308 verbose lock tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package /home/heroacademy/.npm/1a850818-1138-0-09345347969792783-package.lock
+309 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+310 verbose lock tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz /home/heroacademy/.npm/1850cdca-cademy-npm-pm2-4-2-3-package-tgz.lock
+311 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+312 silly lockFile 1a850818-1138-0-09345347969792783-package tar:///home/heroacademy/tmp/npm-27067-ZIwBMntf/1587185671138-0.09345347969792783/package
+313 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+314 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+315 silly lockFile 8d6e2937-eroacademy-npm-pm2-4-2-3-package /home/heroacademy/.npm/pm2/4.2.3/package
+316 verbose lock /home/heroacademy/.npm/pm2/4.2.3/package /home/heroacademy/.npm/8d6e2937-eroacademy-npm-pm2-4-2-3-package.lock
+317 silly lockFile 8d6e2937-eroacademy-npm-pm2-4-2-3-package /home/heroacademy/.npm/pm2/4.2.3/package
+318 silly lockFile 8d6e2937-eroacademy-npm-pm2-4-2-3-package /home/heroacademy/.npm/pm2/4.2.3/package
+319 verbose tar unpack /home/heroacademy/.npm/pm2/4.2.3/package.tgz
+320 silly lockFile 55f61d3d-eroacademy-npm-pm2-4-2-3-package tar:///home/heroacademy/.npm/pm2/4.2.3/package
+321 verbose lock tar:///home/heroacademy/.npm/pm2/4.2.3/package /home/heroacademy/.npm/55f61d3d-eroacademy-npm-pm2-4-2-3-package.lock
+322 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+323 verbose lock tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz /home/heroacademy/.npm/1850cdca-cademy-npm-pm2-4-2-3-package-tgz.lock
+324 silly gunzTarPerm modes [ '755', '644' ]
+325 silly gunzTarPerm extractEntry package.json
+326 silly gunzTarPerm extractEntry README.md
+327 silly gunzTarPerm extractEntry LICENSE
+328 silly gunzTarPerm extractEntry constants.js
+329 silly gunzTarPerm extractEntry index.js
+330 silly gunzTarPerm extractEntry paths.js
+331 silly gunzTarPerm extractEntry CHANGELOG.md
+332 silly gunzTarPerm extractEntry bin/pm2
+333 silly gunzTarPerm extractEntry bin/pm2-dev
+334 silly gunzTarPerm extractEntry bin/pm2-docker
+335 silly gunzTarPerm extractEntry bin/pm2-runtime
+336 silly gunzTarPerm extractEntry .travis.yml
+337 silly gunzTarPerm extractEntry e2e_time
+338 silly gunzTarPerm extractEntry CONTRIBUTING.md
+339 silly gunzTarPerm extractEntry lib/ProcessContainerLegacy.js
+340 silly gunzTarPerm extractEntry lib/God.js
+341 silly gunzTarPerm extractEntry lib/HttpInterface.js
+342 silly gunzTarPerm extractEntry lib/ProcessContainer.js
+343 silly gunzTarPerm extractEntry lib/Event.js
+344 silly gunzTarPerm extractEntry lib/ProcessContainerForkLegacy.js
+345 silly gunzTarPerm extractEntry lib/API.js
+346 silly gunzTarPerm extractEntry lib/ProcessUtils.js
+347 silly gunzTarPerm extractEntry lib/TreeKill.js
+348 silly gunzTarPerm extractEntry lib/Utility.js
+349 silly gunzTarPerm extractEntry lib/Daemon.js
+350 silly gunzTarPerm extractEntry lib/VersionCheck.js
+351 silly gunzTarPerm extractEntry lib/Configuration.js
+352 silly gunzTarPerm extractEntry lib/Watcher.js
+353 silly gunzTarPerm extractEntry lib/Common.js
+354 silly gunzTarPerm extractEntry lib/Worker.js
+355 silly gunzTarPerm extractEntry lib/Client.js
+356 silly gunzTarPerm extractEntry lib/completion.js
+357 silly gunzTarPerm extractEntry lib/ProcessContainerFork.js
+358 silly gunzTarPerm extractEntry lib/God/ActionMethods.js
+359 silly gunzTarPerm extractEntry lib/God/ClusterMode.js
+360 silly gunzTarPerm extractEntry lib/God/ForkMode.js
+361 silly gunzTarPerm extractEntry lib/God/Methods.js
+362 silly gunzTarPerm extractEntry lib/God/Reload.js
+363 silly gunzTarPerm extractEntry lib/API/Configuration.js
+364 silly gunzTarPerm extractEntry lib/API/Deploy.js
+365 silly gunzTarPerm extractEntry lib/API/Extra.js
+366 silly gunzTarPerm extractEntry lib/API/Log.js
+367 silly gunzTarPerm extractEntry lib/API/Dashboard.js
+368 silly gunzTarPerm extractEntry lib/API/Containerizer.js
+369 silly gunzTarPerm extractEntry lib/API/Monit.js
+370 silly gunzTarPerm extractEntry lib/API/Serve.js
+371 silly gunzTarPerm extractEntry lib/API/Startup.js
+372 silly gunzTarPerm extractEntry lib/API/Version.js
+373 silly gunzTarPerm extractEntry lib/API/LogManagement.js
+374 silly gunzTarPerm extractEntry lib/API/ExtraMgmt/Docker.js
+375 silly gunzTarPerm extractEntry lib/API/UX/helpers.js
+376 silly gunzTarPerm extractEntry lib/API/UX/index.js
+377 silly gunzTarPerm extractEntry lib/API/UX/pm2-describe.js
+378 silly gunzTarPerm extractEntry lib/API/UX/pm2-ls-minimal.js
+379 silly gunzTarPerm extractEntry lib/API/UX/pm2-ls.js
+380 silly gunzTarPerm extractEntry lib/API/schema.json
+381 silly gunzTarPerm extractEntry lib/API/interpreter.json
+382 silly gunzTarPerm extractEntry lib/API/pm2-plus/PM2IO.js
+383 silly gunzTarPerm extractEntry lib/API/pm2-plus/helpers.js
+384 silly gunzTarPerm extractEntry lib/API/pm2-plus/link.js
+385 silly gunzTarPerm extractEntry lib/API/pm2-plus/process-selector.js
+386 silly gunzTarPerm extractEntry lib/API/pm2-plus/auth-strategies/CliAuth.js
+387 silly gunzTarPerm extractEntry lib/API/pm2-plus/auth-strategies/WebAuth.js
+388 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/motd
+389 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/motd.update
+390 silly gunzTarPerm extractEntry lib/API/pm2-plus/pres/welcome
+391 silly gunzTarPerm extractEntry lib/API/Modules/HTTP.js
+392 silly gunzTarPerm extractEntry lib/API/Modules/LOCAL.js
+393 silly gunzTarPerm extractEntry lib/API/Modules/Modularizer.js
+394 silly gunzTarPerm extractEntry lib/API/Modules/NPM.js
+395 silly gunzTarPerm extractEntry lib/API/Modules/TAR.js
+396 silly gunzTarPerm extractEntry lib/API/Modules/flagExt.js
+397 silly gunzTarPerm extractEntry lib/API/Modules/index.js
+398 silly gunzTarPerm extractEntry lib/binaries/CLI.js
+399 silly gunzTarPerm extractEntry lib/binaries/DevCLI.js
+400 silly gunzTarPerm extractEntry lib/binaries/Runtime.js
+401 silly gunzTarPerm extractEntry lib/binaries/Runtime4Docker.js
+402 silly gunzTarPerm extractEntry lib/Sysinfo/MeanCalc.js
+403 silly gunzTarPerm extractEntry lib/Sysinfo/SystemInfo.js
+404 silly gunzTarPerm extractEntry lib/Sysinfo/psList.js
+405 silly gunzTarPerm extractEntry lib/Sysinfo/test.js
+406 silly gunzTarPerm extractEntry lib/Sysinfo/ServiceDetection/ServiceDetection.js
+407 silly gunzTarPerm extractEntry lib/Sysinfo/fastlist.exe
+408 silly gunzTarPerm extractEntry lib/completion.sh
+409 silly gunzTarPerm extractEntry lib/motd
+410 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-java.tpl
+411 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-nodejs.tpl
+412 silly gunzTarPerm extractEntry lib/templates/Dockerfiles/Dockerfile-ruby.tpl
+413 silly gunzTarPerm extractEntry lib/templates/ecosystem-simple.tpl
+414 silly gunzTarPerm extractEntry lib/templates/ecosystem.tpl
+415 silly gunzTarPerm extractEntry lib/templates/init-scripts/launchd.tpl
+416 silly gunzTarPerm extractEntry lib/templates/init-scripts/openrc.tpl
+417 silly gunzTarPerm extractEntry lib/templates/init-scripts/pm2-init-amazon.sh
+418 silly gunzTarPerm extractEntry lib/templates/init-scripts/rcd-openbsd.tpl
+419 silly gunzTarPerm extractEntry lib/templates/init-scripts/rcd.tpl
+420 silly gunzTarPerm extractEntry lib/templates/init-scripts/smf.tpl
+421 silly gunzTarPerm extractEntry lib/templates/init-scripts/systemd-online.tpl
+422 silly gunzTarPerm extractEntry lib/templates/init-scripts/systemd.tpl
+423 silly gunzTarPerm extractEntry lib/templates/init-scripts/upstart.tpl
+424 silly gunzTarPerm extractEntry lib/templates/logrotate.d/pm2
+425 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/package.json
+426 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/README.md
+427 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/api.js
+428 silly gunzTarPerm extractEntry lib/templates/sample-apps/http-server/ecosystem.config.js
+429 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/package.json
+430 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/README.md
+431 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/custom-metrics.js
+432 silly gunzTarPerm extractEntry lib/templates/sample-apps/pm2-plus-metrics-actions/ecosystem.config.js
+433 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/package.json
+434 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/README.md
+435 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/ecosystem.config.js
+436 silly gunzTarPerm extractEntry lib/templates/sample-apps/python-app/echo.py
+437 silly gunzTarPerm extractEntry lib/tools/Config.js
+438 silly gunzTarPerm extractEntry lib/tools/find-package-json.js
+439 silly gunzTarPerm extractEntry lib/tools/fmt.js
+440 silly gunzTarPerm extractEntry lib/tools/isbinaryfile.js
+441 silly gunzTarPerm extractEntry lib/tools/IsAbsolute.js
+442 silly gunzTarPerm extractEntry lib/tools/open.js
+443 silly gunzTarPerm extractEntry lib/tools/passwd.js
+444 silly gunzTarPerm extractEntry lib/tools/promise.min.js
+445 silly gunzTarPerm extractEntry lib/tools/treeify.js
+446 silly gunzTarPerm extractEntry lib/tools/json5.js
+447 silly gunzTarPerm extractEntry lib/tools/xdg-open
+448 silly gunzTarPerm extractEntry GNU-AGPL-3.0.txt
+449 silly gunzTarPerm extractEntry .gitattributes
+450 silly gunzTarPerm extractEntry pm2
+451 silly gunzTarPerm extractEntry types/index.d.ts
+452 silly gunzTarPerm extractEntry types/tsconfig.json
+453 silly gunzTarPerm extractEntry unit_time
+454 silly lockFile 55f61d3d-eroacademy-npm-pm2-4-2-3-package tar:///home/heroacademy/.npm/pm2/4.2.3/package
+455 silly lockFile 55f61d3d-eroacademy-npm-pm2-4-2-3-package tar:///home/heroacademy/.npm/pm2/4.2.3/package
+456 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+457 silly lockFile 1850cdca-cademy-npm-pm2-4-2-3-package-tgz tar:///home/heroacademy/.npm/pm2/4.2.3/package.tgz
+458 verbose chmod /home/heroacademy/.npm/pm2/4.2.3/package.tgz 644
+459 verbose chown /home/heroacademy/.npm/pm2/4.2.3/package.tgz [ 570, 578 ]
+460 silly lockFile 074142bc-stry-npmjs-org-pm2-pm2-4-2-3-tgz https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz
+461 silly lockFile 074142bc-stry-npmjs-org-pm2-pm2-4-2-3-tgz https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz
+462 silly lockFile d16adaaa-pm2-4-2-3 pm2@4.2.3
+463 silly lockFile d16adaaa-pm2-4-2-3 pm2@4.2.3
+464 silly lockFile d1072219-pm2 pm2@
+465 silly lockFile d1072219-pm2 pm2@
+466 silly resolved [ { name: 'pm2',
+466 silly resolved     preferGlobal: true,
+466 silly resolved     version: '4.2.3',
+466 silly resolved     engines: { node: '>=8.10.0' },
+466 silly resolved     directories: { bin: './bin', lib: './lib', example: './examples' },
+466 silly resolved     author:
+466 silly resolved      { name: 'Strzelewicz Alexandre',
+466 silly resolved        email: 'alexandre@pm2.io',
+466 silly resolved        url: 'https://pm2.io' },
+466 silly resolved     maintainers: [ [Object], [Object] ],
+466 silly resolved     contributors:
+466 silly resolved      [ [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object],
+466 silly resolved        [Object] ],
+466 silly resolved     homepage: 'http://pm2.keymetrics.io/',
+466 silly resolved     description: 'Production process manager for Node.JS applications with a built-in load balancer.',
+466 silly resolved     main: 'index.js',
+466 silly resolved     types: 'types/index.d.ts',
+466 silly resolved     scripts: { test: 'bash test/unit.sh && bash test/e2e.sh' },
+466 silly resolved     keywords:
+466 silly resolved      [ 'cli',
+466 silly resolved        'fault tolerant',
+466 silly resolved        'sysadmin',
+466 silly resolved        'tools',
+466 silly resolved        'pm2',
+466 silly resolved        'logs',
+466 silly resolved        'log',
+466 silly resolved        'json',
+466 silly resolved        'express',
+466 silly resolved        'hapi',
+466 silly resolved        'kraken',
+466 silly resolved        'reload',
+466 silly resolved        'load balancer',
+466 silly resolved        'lb',
+466 silly resolved        'load-balancer',
+466 silly resolved        'kubernetes',
+466 silly resolved        'k8s',
+466 silly resolved        'pm2-docker',
+466 silly resolved        'runtime',
+466 silly resolved        'source maps',
+466 silly resolved        'graceful',
+466 silly resolved        'microservice',
+466 silly resolved        'programmatic',
+466 silly resolved        'harmony',
+466 silly resolved        'node-pm2',
+466 silly resolved        'production',
+466 silly resolved        'keymetrics',
+466 silly resolved        'node.js monitoring',
+466 silly resolved        'strong-pm',
+466 silly resolved        'deploy',
+466 silly resolved        'deployment',
+466 silly resolved        'daemon',
+466 silly resolved        'supervisor',
+466 silly resolved        'supervisord',
+466 silly resolved        'nodemon',
+466 silly resolved        'pm2.io',
+466 silly resolved        'ghost',
+466 silly resolved        'ghost production',
+466 silly resolved        'monitoring',
+466 silly resolved        'keymetrics',
+466 silly resolved        'process manager',
+466 silly resolved        'forever',
+466 silly resolved        'profiling',
+466 silly resolved        'probes',
+466 silly resolved        'apm',
+466 silly resolved        'container',
+466 silly resolved        'forever-monitor',
+466 silly resolved        'keep process alive',
+466 silly resolved        'process configuration',
+466 silly resolved        'clustering',
+466 silly resolved        'cluster cli',
+466 silly resolved        'cluster',
+466 silly resolved        'docker',
+466 silly resolved        'cron',
+466 silly resolved        'devops',
+466 silly resolved        'dev ops' ],
+466 silly resolved     bin:
+466 silly resolved      { pm2: './bin/pm2',
+466 silly resolved        'pm2-dev': './bin/pm2-dev',
+466 silly resolved        'pm2-docker': './bin/pm2-docker',
+466 silly resolved        'pm2-runtime': './bin/pm2-runtime' },
+466 silly resolved     dependencies:
+466 silly resolved      { '@pm2/agent': '^0.5.26',
+466 silly resolved        '@pm2/io': '^4.3.2',
+466 silly resolved        '@pm2/js-api': '^0.5.60',
+466 silly resolved        '@pm2/pm2-version-check': 'latest',
+466 silly resolved        async: '^3.1.0',
+466 silly resolved        blessed: '0.1.81',
+466 silly resolved        chalk: '2.4.2',
+466 silly resolved        chokidar: '^3.2.0',
+466 silly resolved        'cli-table-redemption': '1.0.1',
+466 silly resolved        commander: '2.15.1',
+466 silly resolved        cron: '1.7.1',
+466 silly resolved        'date-fns': '1.30.1',
+466 silly resolved        debug: '4.1.1',
+466 silly resolved        enquirer: '^2.3.2',
+466 silly resolved        eventemitter2: '5.0.1',
+466 silly resolved        fclone: '1.0.11',
+466 silly resolved        lodash: '4.17.14',
+466 silly resolved        mkdirp: '0.5.1',
+466 silly resolved        moment: '2.24.0',
+466 silly resolved        needle: '2.4.0',
+466 silly resolved        pidusage: '2.0.17',
+466 silly resolved        'pm2-axon': '3.3.0',
+466 silly resolved        'pm2-axon-rpc': '0.5.1',
+466 silly resolved        'pm2-deploy': '^0.4.0',
+466 silly resolved        'pm2-multimeter': '^0.1.2',
+466 silly resolved        promptly: '^2',
+466 silly resolved        'ps-list': '6.3.0',
+466 silly resolved        semver: '^5.5',
+466 silly resolved        shelljs: '0.8.3',
+466 silly resolved        'source-map-support': '0.5.12',
+466 silly resolved        'sprintf-js': '1.1.2',
+466 silly resolved        vizion: '~2.0.2',
+466 silly resolved        yamljs: '0.3.0',
+466 silly resolved        systeminformation: '^4.14.16' },
+466 silly resolved     devDependencies: { mocha: '^5.2.0', should: '^13' },
+466 silly resolved     optionalDependencies: { systeminformation: '^4.14.16' },
+466 silly resolved     bugs: { url: 'https://github.com/Unitech/pm2/issues' },
+466 silly resolved     repository: { type: 'git', url: 'git://github.com/Unitech/pm2.git' },
+466 silly resolved     license: 'AGPL-3.0',
+466 silly resolved     readme: '<div align="center">\n  <br/>\n  <a href="http://pm2.keymetrics.io/" title="PM2 Keymetrics link">\n    <img width=710px src="https://raw.githubusercontent.com/Unitech/pm2/development/pres/pm2-v4.png" alt="pm2 logo">\n  </a>\n  <br/>\n<br/>\n<b>P</b>(rocess) <b>M</b>(anager) <b>2</b><br/>\n  <i>Runtime Edition</i>\n<br/><br/>\n\n<a href="https://badge.fury.io/js/pm2" title="NPM Version Badge">\n   <img src="https://badge.fury.io/js/pm2.svg" alt="npm version">\n</a>\n\n<a href="https://img.shields.io/node/v/pm2.svg" title="Node Limitation">\n   <img src="https://img.shields.io/node/v/pm2.svg" alt="node version">\n</a>\n\n<a href="https://travis-ci.org/Unitech/pm2" title="PM2 Tests">\n  <img src="https://travis-ci.org/Unitech/pm2.svg?branch=master" alt="Build Status"/>\n</a>\n\n\n<br/>\n<br/>\n<br/>\n</div>\n\n\nPM2 is a production process manager for Node.js applications with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks.\n\nStarting an application in production mode is as easy as:\n\n```bash\n$ pm2 start app.js\n```\n\nPM2 is constantly assailed by [more than 1800 tests](https://travis-ci.org/Unitech/pm2).\n\nOfficial website: [https://pm2.keymetrics.io/](https://pm2.keymetrics.io/)\n\nWorks on Linux (stable) & macOS (stable) & Windows (stable). All Node.js versions are supported starting Node.js 8.X.\n\n[![NPM](https://nodei.co/npm/pm2.png?downloads=true&downloadRank=true)](https://nodei.co/npm/pm2/)\n\n### Installing PM2\n\nWith NPM:\n\n```bash\n$ npm install pm2 -g\n```\n\nOr if you don\'t have Node.js installed:\n\n```bash\nwget -qO- https://getpm2.com/install.sh | bash\n```\n\n### Start an application\n\nYou can start any application (Node.js, Python, Ruby, binaries in $PATH...) like that:\n\n```bash\n$ pm2 start app.js\n```\n\nYour app is now daemonized, monitored and kept alive forever.\n\n[More about Process Management](https://pm2.keymetrics.io/docs/usage/quick-start/)\n\n### Managing Applications\n\nOnce applications are started you can manage them easily:\n\n![Process listing](https://github.com/unitech/pm2/raw/master/pres/pm2-list.png)\n\nTo list all running applications:\n\n```bash\n$ pm2 list\n```\n\nManaging apps is straightforward:\n\n```bash\n$ pm2 stop     <app_name|namespace|id|\'all\'|json_conf>\n$ pm2 restart  <app_name|namespace|id|\'all\'|json_conf>\n$ pm2 delete   <app_name|namespace|id|\'all\'|json_conf>\n```\n\nTo have more details on a specific application:\n\n```bash\n$ pm2 describe <id|app_name>\n```\n\nTo monitor logs, custom metrics, application information:\n\n```bash\n$ pm2 monit\n```\n\n[More about Application Management](https://pm2.keymetrics.io/docs/usage/quick-start/)\n\n### Cluster Mode: Node.js Load Balancing & Zero Downtime Reload\n\nThe Cluster mode is a special mode when starting a Node.js application, it starts multiple processes and load-balance HTTP/TCP/UDP queries between them. This increase overall performance (by a factor of x10 on 16 cores machines) and reliability (faster socket re-balancing in case of unhandled errors).\n\nStarting a Node.js application in cluster mode that will leverage all CPUs available:\n\n```bash\n$ pm2 start api.js -i <processes>\n```\n\n`<processes>` can be `\'max\'`, `-1` (all cpu minus 1) or a specified number of instances to start.\n\n**Zero Downtime Reload**\n\nHot Reload allows to update an application without any downtime:\n\n```bash\n$ pm2 reload all\n```\n\nSeamlessly supported by all major Node.js frameworks and any Node.js applications without any code change:\n\n![Framework supported](https://raw.githubusercontent.com/Unitech/PM2/development/pres/cluster-support.png)\n\n[More informations about how PM2 make clustering easy](https://pm2.keymetrics.io/docs/usage/cluster-mode/)\n\n### Container Support\n\nWith the drop-in replacement command for `node`, called `pm2-runtime`, run your Node.js application in a hardened production environment.\nUsing it is seamless:\n\n```\nRUN npm install pm2 -g\nCMD [ "pm2-runtime", "npm", "--", "start" ]\n```\n\n[Read More about the dedicated integration](https://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/)\n\n### Terminal Based Monitoring\n\n![Monit](https://github.com/Unitech/pm2/raw/master/pres/pm2-monit.png)\n\nMonitor all processes launched straight from the command line:\n\n```bash\n$ pm2 monit\n```\n\n### Log Management\n\nTo consult logs just type the command:\n\n```bash\n$ pm2 logs\n```\n\nStandard, Raw, JSON and formated output are available.\n\nExamples:\n\n```bash\n$ pm2 logs APP-NAME       # Display APP-NAME logs\n$ pm2 logs --json         # JSON output\n$ pm2 logs --format       # Formated output\n\n$ pm2 flush               # Flush all logs\n$ pm2 reloadLogs          # Reload all logs\n```\n\n[More about log management](https://pm2.keymetrics.io/docs/usage/log-management/)\n\n### Startup Scripts Generation\n\nPM2 can generates and configure a Startup Script to keep PM2 and your processes alive at every server restart.\n\nInit Systems Supported: **systemd**, **upstart**, **launchd**, **rc.d**\n\n```bash\n# Generate Startup Script\n$ pm2 startup\n\n# Freeze your process list across server restart\n$ pm2 save\n\n# Remove Startup Script\n$ pm2 unstartup\n```\n\n[More about Startup Scripts Generation](https://pm2.keymetrics.io/docs/usage/startup/)\n\n### PM2 Modules\n\nPM2 embeds a simple and powerful module system. Installing a module is straightforward:\n\n```bash\n$ pm2 install <module_name>\n```\n\nHere are some PM2 compatible modules (standalone Node.js applications managed by PM2):\n\n[**pm2-logrotate**](https://www.npmjs.com/package/pm2-logrotate) automatically rotate logs and limit logs size<br/>\n[**pm2-server-monit**](https://www.npmjs.com/package/pm2-server-monit) monitor the current server with more than 20+ metrics and 8 actions<br/>\n\n### Updating PM2\n\n```bash\n# Install latest PM2 version\n$ npm install pm2@latest -g\n# Save process list, exit old PM2 & restore all processes\n$ pm2 update\n```\n\n*PM2 updates are seamless*\n\n## PM2+ Monitoring\n\nIf you manage your apps with PM2, PM2+ makes it easy to monitor and manage apps across servers.\nFeel free to try it:\n\n[Discover the monitoring dashboard for PM2](https://app.pm2.io/)\n\nThanks in advance and we hope that you like PM2!\n\n## CHANGELOG\n\n[CHANGELOG](https://github.com/Unitech/PM2/blob/master/CHANGELOG.md)\n\n## Contributors\n\n[Contributors](http://pm2.keymetrics.io/hall-of-fame/)\n\n## License\n\nPM2 is made available under the terms of the GNU Affero General Public License 3.0 (AGPL 3.0).\nFor other licenses [contact us](mailto:contact@keymetrics.io).\n',
+466 silly resolved     readmeFilename: 'README.md',
+466 silly resolved     _id: 'pm2@4.2.3',
+466 silly resolved     dist: { shasum: '7a8a31eada9eb3ee489c2fd66cb865d9bffdf62e' },
+466 silly resolved     _from: 'pm2@',
+466 silly resolved     _resolved: 'https://registry.npmjs.org/pm2/-/pm2-4.2.3.tgz' } ]
+467 info install pm2@4.2.3 into /usr/lib
+468 info installOne pm2@4.2.3
+469 warn engine pm2@4.2.3: wanted: {"node":">=8.10.0"} (current: {"node":"v0.10.48","npm":"1.3.6"})
+470 info /usr/lib/node_modules/pm2 unbuild
+471 info preuninstall pm2@4.2.3
+472 info uninstall pm2@4.2.3
+473 verbose true,/usr/lib/node_modules,/usr/lib/node_modules unbuild pm2@4.2.3
+474 verbose /usr/bin,[object Object] binRoot
+475 info postuninstall pm2@4.2.3
+476 info /usr/lib/node_modules/pm2 unbuild
+477 info preuninstall pm2@4.2.3
+478 info uninstall pm2@4.2.3
+479 verbose true,/usr/lib/node_modules,/usr/lib/node_modules unbuild pm2@4.2.3
+480 verbose /usr/bin,[object Object] binRoot
+481 info postuninstall pm2@4.2.3
+482 error error rolling back Error: EACCES, unlink '/usr/lib/node_modules/pm2'
+482 error error rolling back  pm2@4.2.3 { [Error: EACCES, unlink '/usr/lib/node_modules/pm2'] errno: 3, code: 'EACCES', path: '/usr/lib/node_modules/pm2' }
+483 error Error: EACCES, unlink '/usr/lib/node_modules/pm2'
+483 error  { [Error: EACCES, unlink '/usr/lib/node_modules/pm2'] errno: 3, code: 'EACCES', path: '/usr/lib/node_modules/pm2' }
+484 error Please try running this command again as root/Administrator.
+485 error System Linux 2.6.32-754.28.1.el6.x86_64
+486 error command "node" "/usr/bin/npm" "install" "pm2" "-g"
+487 error cwd /home/heroacademy/api.heroacademy.online
+488 error node -v v0.10.48
+489 error npm -v 1.3.6
+490 error path /usr/lib/node_modules/pm2
+491 error code EACCES
+492 error errno 3
+493 error stack Error: EACCES, unlink '/usr/lib/node_modules/pm2'
+494 verbose exit [ 3, true ]
