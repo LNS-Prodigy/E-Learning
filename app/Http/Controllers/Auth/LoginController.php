@@ -49,7 +49,8 @@ class LoginController extends Controller
             return false;
         }
 
-        $ip = trim(shell_exec("dig +short myip.opendns.com @resolver1.opendns.com"));
+        // $ip = trim(shell_exec("dig +short myip.opendns.com @resolver1.opendns.com"));
+        $ip = $request->ip();
         $appUrl = config('app.client_url', config('app.url'));
         $appName = config('app.name');
         
@@ -69,7 +70,7 @@ class LoginController extends Controller
 
         $user->update([
             'last_login_at' => Carbon::now()->toDateTimeString(),
-            'last_login_ip' => $request->ip()
+            'last_login_ip' => $ip
         ]);
 
         $this->guard()->setToken($token);

@@ -27,10 +27,14 @@ Route::prefix('course')->group(function () {
     Route::get('/instructor/{username}', 'PageController@showInstructor');
     // Course Category
     Route::get('/category/{slug}', 'PageController@showCategory');
+    Route::get('/category/{slug}/getCategoryCourses', 'PageController@getCategoryCourses');
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('{slug}/learn/{id}', 'Enroll\EnrollController@showLessons');
     });
+
+    // Course FeedBacks
+    Route::get('/{course_id}/getFeedbacks', 'PageController@getCourseFeedbacks');
 
 });
 
@@ -81,8 +85,12 @@ Route::group(['middleware' => 'auth:api'], function () {
         // Update Rating
         Route::patch('/rating/patch/{id}', 'User\CourseRatingController@update');
     });
+});
 
-
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::prefix('user/notifications')->group(function () {
+        Route::get('/', 'User\UserNotificationController@getNotifications');
+    });
 });
 
 // Record user searches
@@ -92,6 +100,8 @@ Route::post('search/userSearches', 'User\UserSearchController@store');
 Route::group(['middleware' => 'auth:api'], function () {
     Route::prefix('instructor')->group(function () {
         // Search
+        Route::post('/search/youtubeData', 'SearchController@getYoutubeData');
+        
         Route::get('/courses/search', 'Instructor\Courses\PageController@search');
 
         // CRUD for Courses
@@ -127,9 +137,14 @@ Route::group(['middleware' => 'auth:api'], function () {
         // Course Section Quiz
         Route::get('/courses/section/add_quiz/get/{id}', 'Instructor\Courses\CourseSectionQuizController@create');
         Route::post('/courses/section/add_quiz/store', 'Instructor\Courses\CourseSectionQuizController@store');
+        // Route::delete('/courses/section/delete_quiz/{id}', 'Instructor\Courses\CourseSectionQuizController@destroy');
 
         // Course Quizbank
         Route::post('/courses/section/add_quiz_bank/post', 'Instructor\Courses\CourseSectionQuizBankController@store');
+
+        Route::get('/courses/section/edit_quiz_bank/get/{quizbank_id}', 'Instructor\Courses\CourseSectionQuizBankController@edit');
+        Route::patch('/courses/section/edit_quiz_bank/{quizbank_id}/update', 'Instructor\Courses\CourseSectionQuizBankController@update');
+        Route::delete('/courses/section/delete_quizbank/{id}', 'Instructor\Courses\CourseSectionQuizController@destroy');
 
         Route::patch('/settings/email', 'Settings\ProfileController@updateEmail');
         Route::post('/settings/avatar', 'Settings\ProfileController@updateAvatar');
@@ -152,6 +167,7 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::post('oauth/{driver}', 'Auth\OAuthController@redirectToProvider');
     Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
 });
+
 
 
 Route::prefix('cart')->group(function () {

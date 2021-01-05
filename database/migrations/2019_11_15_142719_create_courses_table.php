@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
 
             // User
-            $table->bigInteger('teacher_id')->unsigned();
+            $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('users');
 
             // Course Basic
@@ -29,8 +29,7 @@ class CreateCoursesTable extends Migration
             $table->longText('description');
 
             // Category
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('course_categories');
+            $table->unsignedBigInteger('category_id');
 
             // Published
             $table->enum('status', ['UNPUBLISH', 'PUBLISHED', 'DRAFT', 'PENDING', 'APPROVED'])->default('PENDING');
@@ -71,6 +70,30 @@ class CreateCoursesTable extends Migration
             $table->softDeletes();
             $table->index(['deleted_at']);
         });
+
+        Schema::create('course_categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            // Relationships 
+            $table->unsignedBigInteger('parent_id')->nullable()->default(null);
+            $table->foreign('parent_id')->references('id')->on('course_categories')->onUpdate('cascade')->onDelete('set null');
+
+            // Featured Course
+            $table->unsignedBigInteger('featured_course_id');
+            $table->foreign('featured_course_id')->references('id')->on('courses')->onDelete('cascade');
+            
+            // Category Icon
+            $table->string('icon')->nullable();
+            $table->string('name');
+            
+            // Category URL Friendly
+            $table->string('slug')->unique();
+
+            // Category Order
+            $table->integer('order_index')->default(1);
+            
+            $table->timestamps();
+        });
     }
 
     /**
@@ -80,6 +103,6 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists(['courses', 'course_categories']);
     }
 }

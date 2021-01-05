@@ -41,10 +41,20 @@ class CourseRatingController extends Controller
 
     	$rating = new CourseRating($request->all());
 
-        $rating->teach_id = $request->teacher_id;
+        $rating->teacher_id = $request->teacher_id;
 
     	$request->user()
-    		->reviews()->save($rating);
+            ->reviews()->save($rating);
+            
+        // Update Course Average Rating
+
+        $course = Course::where('id', $rating->course_id)->select(['courses.id', 'courses.rating_average'])->first();
+        
+        $avgRating = $rating->avg('rating');
+        $course->rating_average = $avgRating;
+        
+        $course->save();
+
 
     	return response()
     		->json([
@@ -59,6 +69,7 @@ class CourseRatingController extends Controller
                 'comments' => $rating->comments,
                 'created_at' => $rating->created_at,
                 'updated_at' => $rating->updated_at,
+                'avgRating' => $avgRating,
 
     			'message' => "Rating successfully submitted! Thank you for making time for this.",
     		]);
@@ -92,11 +103,19 @@ class CourseRatingController extends Controller
 
         $rating->save();
 
+        $course = Course::where('id', $rating->course_id)->select(['courses.id', 'courses.rating_average'])->first();
+        
+        $avgRating = $rating->avg('rating');
+        $course->rating_average = $avgRating;
+        
+        $course->save();
+
         return response()
             ->json([
                 'updated' => true,
                 'rating' => $rating,
-                'message' => 'Rating updated'
+                'message' => 'Rating updated',
+                'avgRating' => $avgRating,
             ]);
     }
 

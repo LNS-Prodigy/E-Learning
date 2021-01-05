@@ -50,12 +50,15 @@ class EnrollController extends Controller
                 ], 401);
         } else {
             $courseStudent = new CourseStudent();
+
             $courseStudent->user_id = $user->id;
             $courseStudent->course_id = $course->id;
+
             // Calculate total hours
             $hrs = 0;
             $mins = 0;
             $secs = 0;
+            
             foreach ($course->lessons as $time) {
                 if ($time->duration != null) {
                     list ($hours, $minutes, $seconds) = explode(':', $time->duration);
@@ -91,19 +94,28 @@ class EnrollController extends Controller
 			$userProgress->lesson_id = $lesson->id;
 			$userProgress->status = 0;
 
-			$userProgress->save();
+            $userProgress->save();
+            
+            $courseStudent->remaining_lessons += 1;
+            $courseStudent->save();
 		}
 
         $firstLesson = $course->firstLesson()->first();
 
-		$appUrl = config('app.client_url', config('app.url'));
+        $appUrl = config('app.client_url', config('app.url'));
+        
 		$details = [
 			'subject' => "Hello $user->name! Welcome to $course->title",
             'greeting' => 'Enrollment Confirmation',
-            'body' => "Thanks for enrolling in the course, " . '"' . $course->title . '"!',
+            'body' => array(
+                'course_id' => $course->id,
+                'course_slug' => $course->slug,
+                'content' => "Thanks for enrolling in the course, " . '"' . $course->title . '"!',
+            ),
             'actionText' => 'Start Learning',
             'actionURL' => url("$appUrl" . "/student/account/my-courses/learning/" . $firstLesson->id . '/lesson/' . $course->slug . "/show/overview"),
         ];
+
 		Notification::send($user, new CourseSubscriptionNotification($details));
 
     	return response()

@@ -40,6 +40,7 @@ class CourseSectionLessonController extends Controller
             ->firstOrFail(['id']);
 
         $sections = CourseSection::where('course_id', $course->id)
+            ->orderBy('order_index', 'asc')
             ->get(['id', 'title']);
 
         return response()
@@ -59,6 +60,7 @@ class CourseSectionLessonController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|max:255',
+            'course_section_id' => 'required',
             'lesson_type' => 'required',
         ]);
 
@@ -118,40 +120,38 @@ class CourseSectionLessonController extends Controller
             ->first();
 
         if (!$courseUserProgress) {
-
-            $user = Auth::user();
-
-            $courseStudents = Course::where('id', $request->course_id)
+        
+            $course = Course::where('id', $request->course_id)
                 ->first();
 
-            $studentId = CourseStudent::where('user_id', $user->id)
-                ->where('course_id', $courseStudents->id)
-                ->first();
+            $enrolledStudentinCourse = CourseStudent::where('course_id', $course->id)
+                ->get();
 
-            if ($studentId) {
-                $time = $studentId->total_time;
+
+            foreach ($enrolledStudentinCourse as $course_student) {
+                $time = $course_student->total_time;
                 $time2 = $lesson->duration;
 
                 $secs = strtotime($time2) - strtotime("00:00:00");
                 $result = date("H:i:s", strtotime($time) + $secs);
 
-                $studentId->total_time = $result;
-
-                $studentId->save();
+                $course_student->total_time = $result;
+                $course_student->remaining_lessons += 1;
+                $course_student->save();
             }
 
+            foreach ($course->students()->get() as $student) {
+                $userProgress = new CourseUserProgress;
 
-            foreach ($courseStudents->students() as $student) {
-                $userProgress = new CourseUserProgress();
-
-    			$userProgress->course_id = $request->course_id;
-    			$userProgress->user_id = $user->id;
+                $userProgress->course_id = $request->course_id;
+                $userProgress->user_id = $student->id;
                 $userProgress->section_id = $lesson->course_section_id;
-    			$userProgress->lesson_id = $lesson->id;
-    			$userProgress->status = 0;
+                $userProgress->lesson_id = $lesson->id;
+                $userProgress->status = 0;
 
-    			$userProgress->save();
+                $userProgress->save();
             }
+            
         }
 
 
@@ -232,9 +232,6 @@ class CourseSectionLessonController extends Controller
         }
 
         if ($request->lesson_provider == 'HTML5') {
-            $this->validate($request, [
-                'video_url' => 'required|mimes:mp4'
-            ]);
             Cloudder::uploadVideo($request->video_url, null, array('folder' => 'Lesson Videos'));
             $file_url = Cloudder::show(Cloudder::getPublicId(), ['resource_type' => 'video', 'format' => 'mp4']);
             $lesson->video_url = $file_url;
@@ -264,10 +261,31 @@ class CourseSectionLessonController extends Controller
 
         CourseUserProgress::where('lesson_id', $id)->delete();
 
+        $studentsCourse = CourseStudent::where('course_id', $lesson->course_id)
+            ->get();
+
+        if ($studentsCourse != null) {
+            foreach ($studentsCourse as $studentCourse) {
+                if ($studentCourse->total_time != '00:00:00') {
+                    $time = $studentCourse->total_time;
+                    $time2 = $lesson->duration;
+    
+                    $secs = strtotime($time2) - strtotime("00:00:00");
+                    $result = date("H:i:s", strtotime($time) - $secs);
+    
+                    $studentCourse->total_time = $result;
+                    $studentCourse->remaining_lessons -= 1;
+                    $studentCourse->save();
+                }
+            }
+        }
+
         $lesson->delete();
 
         return response()
             ->json([
+                'finalResult' => $secs,
+                'studentCourse' => $studentCourse,
                 'deleted' => true,
                 'message' => "Lesson deleted successfully $lesson->title"
             ]);

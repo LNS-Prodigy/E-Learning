@@ -14,6 +14,7 @@ class AddDetailsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->nullable()->after('email');
             $table->string('avatar_public_id')->nullable()->after('avatar');
             $table->date('birthday')->nullable()->after('password');
             $table->string('phone')->nullable()->after('birthday');

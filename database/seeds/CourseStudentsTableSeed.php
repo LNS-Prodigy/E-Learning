@@ -17,7 +17,7 @@ class CourseStudentsTableSeed extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i = 0; $i < 20000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             CourseStudent::create([
                 'course_id' => Course::all()->random()->id,
                 'user_id' => User::all()->random()->id,

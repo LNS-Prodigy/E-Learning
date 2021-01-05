@@ -17,16 +17,16 @@ class CreateCourseProgressTable extends Migration
             $table->bigIncrements('id');
 
             // Relationship
-            $table->bigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->bigInteger('course_id')->unsigned();
+            $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
-            $table->bigInteger('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('course_sections')->onDelete('cascade');
+            $table->unsignedBigInteger('section_id');
+            $table->foreign('section_id')->references('id')->on('course_curriculum_sections')->onDelete('cascade');
 
-            $table->bigInteger('lesson_id')->unsigned();
+            $table->unsignedBigInteger('lesson_id');
             $table->foreign('lesson_id')->references('id')->on('course_curriculum_section_lessons')->onDelete('cascade');
 
             $table->boolean('status')

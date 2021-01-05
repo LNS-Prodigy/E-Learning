@@ -24,7 +24,8 @@ class ContactController extends Controller
             'subject' => 'required|max:255',
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'agreed_terms' => 'required'
         ]);
 
         Contact::create($request->all());

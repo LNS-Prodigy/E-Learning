@@ -56,6 +56,9 @@ class CourseUserProgressController extends Controller
             $studentCourse->save();
         }
 
+        $studentCourse->remaining_lessons -= 1;
+        $studentCourse->save();
+
         $lesson->status = 1;
         $lesson->update();
 

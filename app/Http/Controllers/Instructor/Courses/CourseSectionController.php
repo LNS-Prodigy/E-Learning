@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 // Course Model
 use App\Models\Course\Course;
 use App\Models\Course\CourseSection;
+use App\Models\Course\CourseUserProgress;
+use App\Models\Course\CourseSectionLesson;
+use App\Models\Course\CourseSectionQuiz;
+use App\Models\Cart\Subscription\CourseStudent;
 
 class CourseSectionController extends Controller
 {
@@ -28,6 +32,7 @@ class CourseSectionController extends Controller
             ->firstOrFail();
 
         $section = new CourseSection($request->all());
+
         $section->slug = str_slug($request->title, '-');
         $section->course_id = $course->id;
         $section->order_index++;
@@ -98,7 +103,38 @@ class CourseSectionController extends Controller
         $section = CourseSection::where('id', $id)
             ->firstOrFail();
 
+        $course = Course::where('id', $section->course_id)->first();
+
+        CourseUserProgress::where('section_id', $id)->delete();
+        CourseSectionQuiz::where('section_id', $id)->delete();
+
+        $students = CourseStudent::where('course_id', $course->id)->get();
+
+        foreach ($students as $student) {
+            $lessons = CourseSectionLesson::where('course_section_id', $section->id)->get();
+
+            foreach ($lessons as $lesson) {
+                if ($student->total_time != '00:00:00') {
+                    $time = $student->total_time;
+                    $time2 = $lesson->duration;
+
+                    $secs = strtotime($time2) - strtotime("00:00:00");
+                    $result = date("H:i:s", strtotime($time) - $secs);
+
+                    $student->total_time = $result;
+                    $student->remaining_lessons -= 1;
+                    $student->save();
+                }
+            }
+        }
+
         $section->delete();
+
+        return response()
+            ->json([
+                'deleted' => true,
+                'message' => 'Section successfully deleted.'
+            ]);
     }
 
     /**

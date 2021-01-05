@@ -19,11 +19,11 @@ class CourseRatingsTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 20000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             CourseRating::create([
                 'user_id' => User::all()->random()->id,
                 'course_id' => Course::all()->random()->id,
-                'teach_id' => $faker->randomElement(['6', '14']),
+                'teacher_id' => $faker->randomElement(['6', '14']),
                 'rating' => $faker->randomElement(['1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5']),
                 'comments' => $faker->paragraph(2)
             ]);

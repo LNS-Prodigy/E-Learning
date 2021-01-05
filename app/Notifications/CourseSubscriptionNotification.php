@@ -60,7 +60,9 @@ class CourseSubscriptionNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            // 'course_id' => $this->course['id']
+            'course_id' => $this->details['body']['course_id'],
+            'course_slug' => $this->details['body']['course_slug'],
+            'content' => $this->details['body']['content']
         ];
     }
 }

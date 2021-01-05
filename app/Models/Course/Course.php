@@ -27,7 +27,7 @@ class Course extends Model implements Searchable, ViewableContract
     protected $fillable = [
         'title', 'slug', 'excerpt', 'description', 'category_id',
         'status', 'language_id', 'level', 'free_course', 'price',
-        'has_discount', 'discount', 'image', 'course_overview_provider', 'course_overview_url',
+        'has_discount', 'discount', 'image', 'course_overview_provider', 'course_overview_url', 'rating_average',
         'meta_keywords', 'meta_description'
     ];
 

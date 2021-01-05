@@ -32,8 +32,7 @@ class PageController extends Controller
         $courses = Course::where('status', 'PUBLISHED')
             ->has('lessons')
             ->with(['user:id,name'])
-            ->leftJoin('course_ratings', 'course_ratings.course_id', '=', 'courses.id')
-            ->select(['courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.price', 'courses.free_course', 'courses.discount', 'courses.price', 'courses.has_discount', 'courses.image', 'courses.image_public_id' , DB::raw(('AVG(rating) as rating_average'))])
+            ->select('courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.price', 'courses.free_course', 'courses.discount', 'courses.price', 'courses.has_discount', 'courses.image', 'courses.image_public_id', 'courses.rating_average')
             ->groupBy('id')
             ->withCount('ratings')
             ->get();
@@ -43,7 +42,7 @@ class PageController extends Controller
         if (Auth::check()) {
             $enrolled_courses = Course::whereHas('students', function($query) {
                 $query->where('user_id', Auth::user()->id)
-                    ->where('total_time', '!=', '00:00:00');
+                    ->where('remaining_lessons', '!=', '0');
             })
             ->with(['user:id,name', 'firstLesson:id,course_id', 'firstProgress' => function ($query) {
                 $query->where('user_id', Auth::user()->id);
@@ -79,12 +78,6 @@ class PageController extends Controller
             ->firstOrFail();
 
         $avgRating = round($course->ratings()->avg('rating'), 1);
-
-        $feedBacks = CourseRating::where('course_id', $course->id)
-            ->with(['user:id,name,email,avatar,avatar_public_id'])
-            ->orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
 
         $fiveRating = CourseRating::where('course_id', $course->id)
             ->where('rating', 5)
@@ -129,6 +122,7 @@ class PageController extends Controller
 
         $sections = CourseSection::where('course_id', $course->id)
             ->with(['lessons:id,course_section_id'])
+            ->orderBy('order_index', 'asc')
             ->get(['id', 'title']);
 
         $lessons = CourseSectionLesson::where('course_id', $course->id)
@@ -174,8 +168,8 @@ class PageController extends Controller
             ->withCount(['courses', 'myReviews'])
             ->firstOrFail(['id', 'name', 'avatar', 'avatar_public_id', 'introduction', 'biography']);
 
-        $instructorDatas = Course::where('teacher_id', $instructor->id)
-            ->leftJoin('course_ratings', 'course_ratings.teach_id', '=', 'courses.teacher_id')
+        $instructorDatas = Course::where('courses.teacher_id', $instructor->id)
+            ->leftJoin('course_ratings', 'course_ratings.teacher_id', '=', 'courses.teacher_id')
             ->select(['courses.id', 'courses.teacher_id', DB::raw(('AVG(rating) as rating_average')) ])
             ->withCount(['students'])
             ->first();
@@ -190,11 +184,10 @@ class PageController extends Controller
             ->where('category_id', $course->category_id)
             ->inRandomOrder()
             ->take(3)
-            ->leftJoin('course_ratings', 'course_ratings.course_id', '=', 'courses.id')
-            ->select(['courses.id', 'title', 'slug', 'teacher_id', 'has_discount', 'free_course', 'price', 'discount', 'category_id', 'image', 'image_public_id', 'excerpt', 'language', 'level', 'courses.updated_at', 'courses.created_at',  DB::raw(('avg(rating) as rating_average'))])
+            ->select('courses.id', 'title', 'slug', 'courses.teacher_id', 'has_discount', 'free_course', 'price', 'discount', 'category_id', 'image', 'image_public_id', 'excerpt', 'language', 'level', 'courses.updated_at', 'courses.created_at', 'courses.rating_average')
             ->groupBy('id')
             ->withCount('ratings', 'students')
-            ->get(['id', 'teacher_id', 'title', 'excerpt', 'image', 'slug', 'price', 'discount', 'has_discount', 'free_course', 'category_id', 'created_at', 'updated_at', 'image_public_id']);
+            ->get();
 
         return response()
             ->json([
@@ -211,13 +204,25 @@ class PageController extends Controller
                 'enrolled_students' => $enrolled_students,
                 'instructor' => $instructor,
                 'avgRating' => $avgRating,
-                'feedBacks' => $feedBacks,
                 'fiveRating' => $fiveRating,
                 'fourRating' => $fourRating,
                 'threeRating' => $threeRating,
                 'twoRating' => $twoRating,
                 'oneRating' => $oneRating,
                 'instructorDatas' => $instructorDatas,
+            ]);
+    }
+
+    public function getCourseFeedbacks($id)
+    {
+        $feedBacks = CourseRating::where('course_id', $id)
+            ->with(['user:id,name,email,avatar,avatar_public_id'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return response()
+            ->json([
+                'feedbacks' => $feedBacks
             ]);
     }
 
@@ -255,20 +260,16 @@ class PageController extends Controller
         $category = CourseCategory::where('slug', $slug)
             ->first();
 
-        $courses = Course::leftJoin('course_ratings', 'course_ratings.course_id', '=', 'courses.id')
-            ->select(['courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', DB::raw(('avg(rating) as rating_average'))])
-            ->has('lessons')
-            ->where('category_id', $category->id)
-            ->with(['user:id,name'])
-            ->withCount(['ratings', 'lessons', 'students'])
-            ->orderBy('rating_average', 'desc')
-            ->get();
+        $countCourses = 0;
 
-        $countCourses = Course::where('category_id', $category->id)->count();
+        $courses = Course::where('category_id', $category->id)->get('id');
+
+        if ($courses->count() != 0) {
+            $countCourses = Course::where('category_id', $category->id)->whereNotIn('id', [$courses->pluck('id')])->count();
+        }
 
         $featuredCourse = Course::where('category_id', $category->id)
-            ->leftJoin('course_ratings', 'course_ratings.course_id', '=', 'courses.id')
-            ->select(['courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', DB::raw(('avg(rating) as rating_average'))])
+            ->select('courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', 'courses.rating_average')
             ->groupBy('id')
             ->where('featured', 1)
             ->with(['user:id,name'])
@@ -276,8 +277,7 @@ class PageController extends Controller
             ->get();
 
         $mostPopular = Course::has('lessons')
-            ->leftJoin('course_ratings', 'course_ratings.course_id', '=', 'courses.id')
-            ->select(['courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', DB::raw(('avg(rating) as rating_average'))])
+            ->select('courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', 'courses.rating_average')
             ->groupBy('id')
             ->take(10)
             ->where('category_id', $category->id)
@@ -293,6 +293,22 @@ class PageController extends Controller
                 'featuredCourse' => $featuredCourse,
                 'courses' => $courses,
                 'countCourses' => $countCourses
+            ]);
+    }
+
+    public function getCategoryCourses($category_id)
+    {
+        $courses = Course::has('lessons')
+            ->select('courses.id', 'courses.title', 'courses.slug', 'courses.teacher_id', 'courses.has_discount', 'courses.free_course', 'courses.price', 'courses.discount', 'courses.category_id', 'courses.image', 'courses.image_public_id', 'courses.excerpt', 'courses.language', 'courses.level', 'courses.rating_average')
+            ->where('category_id', $category_id)
+            ->with(['user:id,name'])
+            ->withCount(['ratings', 'lessons', 'students'])
+            ->orderBy('rating_average', 'desc')
+            ->paginate(10);
+
+        return response()
+            ->json([
+                'courses' => $courses
             ]);
     }
 
