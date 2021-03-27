@@ -8,6 +8,7 @@
         "php": "^7.2",
         "aalaap/faker-youtube": "^1.2",
         "cyrildewit/eloquent-viewable": "^4.1",
+        "doctrine/dbal": "^3.0",
         "fideloper/proxy": "^4.0",
         "jrm2k6/cloudder": "^0.6.0",
         "kitetail/zttp": "^0.6.0",
